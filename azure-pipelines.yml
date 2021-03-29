@@ -9,3 +9,9 @@ steps:
     codeCoverageClassFilesDirectories: 'project1/build/classes/java/main/,project2/build/classes/java/main/'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: './'
+    ArtifactName: 'drop2'
+    publishLocation: 'Container'
