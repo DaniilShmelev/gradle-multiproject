@@ -1,0 +1,12 @@
+steps:
+- task: Gradle5x@2
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    codeCoverageToolOption: 'JaCoCo'
+    codeCoverageClassFilesDirectories: 'build/classes/main/'
+    codeCoverageGradle5xOrHigher: false
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
