@@ -6,15 +6,21 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
-    codeCoverageClassFilesDirectories: 'build/classes/java/main/'
+    codeCoverageClassFilesDirectories: ''
+    codeCoverageClassFilter: '+*'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
 
-- task: Bash@3
+- task: Gradle@2
   inputs:
-    targetType: 'inline'
-    script: 'ls'
-    workingDirectory: 'project1/build/classes/java/main/'
+    gradleWrapperFile: 'gradlew'
+    tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    codeCoverageToolOption: 'JaCoCo'
+    codeCoverageClassFilesDirectories: 'build/classes/main/'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
 
 - task: PublishBuildArtifacts@1
   inputs:
