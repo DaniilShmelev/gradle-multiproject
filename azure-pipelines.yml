@@ -6,7 +6,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
-    codeCoverageClassFilesDirectories: ''
+    codeCoverageClassFilesDirectories: 'project1/build/classes/java/main/,project1/build/libs/'
     codeCoverageClassFilter: '+*'
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
