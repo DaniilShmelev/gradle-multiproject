@@ -1,7 +1,7 @@
 steps:
 - task: Gradle5x@2
   inputs:
-    gradleWrapperFile: 'gradlew'
+    gradleWrapperFile: 'other/gradlew'
     tasks: 'build'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
@@ -10,14 +10,8 @@ steps:
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: false
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'ls'
-    workingDirectory: 'project1/build/classes/java/main/'
-
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: './'
+    PathtoPublish: './other/'
     ArtifactName: 'drop2'
     publishLocation: 'Container'
