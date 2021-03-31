@@ -1,27 +1,19 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'application'
-
-sourceCompatibility = 1.8 // java 8
-targetCompatibility = 1.8
-
-mainClassName = 'HelloSecond'
+plugins {
+	id 'java'
+}
 
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
+dependencies {
+	testImplementation(platform('org.junit:junit-bom:5.7.1'))
+	testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
+test {
+	useJUnitPlatform()
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
 }
