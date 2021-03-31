@@ -25,7 +25,7 @@ allprojects {
 
     sourceSets {
         main{
-            output.classesDir = file("$buildDir/classes")
+            output.classesDirs.from = fileTree(dir: "$buildDir/classes")
         }
     }
 
