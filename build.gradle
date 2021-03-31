@@ -25,7 +25,7 @@ allprojects {
 
     sourceSets {
         main{
-            output.classesDirs.from = fileTree(dir: "$buildDir/classes")
+            output.classesDir = file(dir: "$buildDir/classes")
         }
     }
 
@@ -48,4 +48,3 @@ allprojects {
 
     
 }
-
