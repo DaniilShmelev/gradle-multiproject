@@ -7,4 +7,28 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jacoco:org.jacoco.core:0.8.1"
     }
+
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    logger.error(sourceSets.main.output.classesDirs.toString())
+
+    test {
+        useJUnitPlatform()
+    }
+
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    }
+
+    
 }
